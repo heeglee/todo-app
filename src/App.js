@@ -5,18 +5,18 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 // PERFORMANCE TEST
-function createBulkTodos() {
-    const array = [];
-    for (let i = 0; i <= 2500; i++) {
-        array.push({
-            id: i,
-            text: `TODO ${i}`,
-            checked: false,
-        });
-    }
+// function createBulkTodos() {
+//     const array = [];
+//     for (let i = 0; i <= 2500; i++) {
+//         array.push({
+//             id: i,
+//             text: `TODO ${i}`,
+//             checked: false,
+//         });
+//     }
 
-    return array;
-}
+//     return array;
+// }
 
 function todoReducer(todos, action) {
     switch (action.type) {
@@ -34,10 +34,10 @@ function todoReducer(todos, action) {
 }
 
 const App = () => {
-    const [todos, setTodos] = useState(createBulkTodos);
+    const [todos, setTodos] = useState([]);
     // const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
 
-    const nextId = useRef(2501);
+    const nextId = useRef(1);
 
     const onInsert = useCallback(text => {
         const todo = {
